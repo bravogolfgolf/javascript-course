@@ -70,34 +70,53 @@ class VehicleFactory {
     }
 }
 
+class CustomVehicleFactory {
 
-var vehicleFactory = new VehicleFactory();
+    constructor(vehicleType) {
+        if (vehicleType == "car") {
+            this.vehicleCtor = Car;
+        } else if (vehicleType == "truck") {
+            this.vehicleCtor = Truck;
+        }
+    }
 
-console.log("Vehicle factory: ", vehicleFactory);
+    createVehicle(details) {
+
+        return new this.vehicleCtor(details);
+
+    }
+}
+
+
+var carFactory = new CustomVehicleFactory("car");
+
+var truckFactory = new CustomVehicleFactory("truck");
+
+console.log("Car factory: ", carFactory);
+console.log("Truck factory: ", truckFactory);
 
 
 var carDetails = {
-    "make": "Honda",
-    "model": "Civic",
-    "carType": "sedan"
+    "make": "BMW",
+    "model": "5 series",
+    "carType": "convertible"
 }
 
-var car = vehicleFactory.createVehicle("car", carDetails);
+var car = carFactory.createVehicle(carDetails);
 
 console.log("Created car: ", car);
 console.log("Is instanceof Car?: ", (car instanceof Car));
-
 
 car.printDetails();
 
 
 var truckDetails = {
-    "make": "Ashok Leyland",
-    "model": "D20B",
-    "truckType": "flatbed"
+    "make": "Western Star",
+    "model": "A1",
+    "truckType": "lowboy trailer"
 }
 
-var truck = vehicleFactory.createVehicle("truck", truckDetails);
+var truck = truckFactory.createVehicle(truckDetails);
 
 console.log("Created truck: ", truck);
 console.log("Is instanceof Truck?: ", (truck instanceof Truck));
