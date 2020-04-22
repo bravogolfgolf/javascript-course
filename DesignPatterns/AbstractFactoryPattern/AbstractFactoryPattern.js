@@ -121,3 +121,47 @@ class TwoWheelerFactory extends VehicleFactory {
         super("twowheeler");
     }
 };
+
+var abstractVehicleFactory = (function () {
+
+  var factoryTypes = {};
+
+  return {
+
+    getVehicle: function(vehicleType, details) {
+
+        var vehicleFactory = factoryTypes[vehicleType];
+
+        if (vehicleFactory) {
+            return vehicleFactory.create(details);
+        }
+
+        return null;
+    },
+
+    registerVehicleFactory: function(vehicleType, vehicleFactory) {
+
+        if (!vehicleFactory.__proto__.create) {
+            throw Error("create() method expected on the factory");
+        }
+
+        if (!vehicleFactory.vehicleCtor) {
+            throw Error("vehicleCtor expected on the factory");
+        }
+
+        if (!vehicleFactory.vehicleCtor.prototype.drive ||
+            !vehicleFactory.vehicleCtor.prototype.fillFuel) {
+            throw Error("Vehicles constructed should have drive() and fillFuel() methods");
+        }
+
+        factoryTypes[vehicleType] = vehicleFactory;
+    }
+
+   };
+})();
+
+abstractVehicleFactory.registerVehicleFactory("car", new CarFactory());
+
+abstractVehicleFactory.registerVehicleFactory("truck", new TruckFactory());
+
+console.log("abstractVehicleFactory: ", abstractVehicleFactory);
