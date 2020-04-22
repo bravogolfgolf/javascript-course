@@ -165,3 +165,49 @@ abstractVehicleFactory.registerVehicleFactory("car", new CarFactory());
 abstractVehicleFactory.registerVehicleFactory("truck", new TruckFactory());
 
 console.log("abstractVehicleFactory: ", abstractVehicleFactory);
+
+var carDetails = {
+    "make": "BMW",
+    "model": "5 series",
+    "carType": "convertible"
+}
+
+var car = abstractVehicleFactory.getVehicle("car", carDetails);
+
+console.log("Created car: ", car);
+console.log("Is instanceof Car?: ", (car instanceof Car));
+
+car.printDetails();
+
+var truckDetails = {
+    "make": "Western Star",
+    "model": "A1",
+    "truckType": "lowboy trailer"
+}
+
+var truck = abstractVehicleFactory.getVehicle("truck", truckDetails);
+
+console.log("Created truck: ", truck);
+console.log("Is instanceof Truck?: ", (truck instanceof Truck));
+
+truck.printDetails();
+
+var twoWheelerDetails = {
+    "make": "Hero",
+    "model": "Z23",
+    "twoWheelerType": "motorbike"
+}
+
+var twowheeler = abstractVehicleFactory.getVehicle("twowheeler", twoWheelerDetails);
+
+console.log("Created two-wheeler: ", twowheeler);
+console.log("Is instanceof TwoWheeler?: ", (twowheeler instanceof TwoWheeler));
+
+abstractVehicleFactory.registerVehicleFactory("twowheeler", new TwoWheelerFactory());
+
+twowheeler = abstractVehicleFactory.getVehicle("twowheeler", twoWheelerDetails);
+
+console.log("Created two-wheeler after registering factory: ", twowheeler);
+console.log("Is instanceof TwoWheeler?: ", (twowheeler instanceof TwoWheeler));
+
+twowheeler.printDetails();
