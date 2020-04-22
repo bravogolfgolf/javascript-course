@@ -1,36 +1,49 @@
-var another_student = Object.create(Object.prototype);
+function Student(name, university) {
 
-another_student.name = "James";
-another_student.university = "Intelligent University";
-another_student["gpa"] = 3.4;
+    this.name = name;
+    this.university = university;
 
-another_student.printDetails = function() {
-    console.log("***** printDetails");
-    console.log("Name: ", this.name,
-        "University: ", this["university"],
-        "GPA: ", this.gpa);
-    console.log("*****");
+    this.printDetails = function() {
+        console.log("***** printDetails");
+        console.log("Name: ", this.name,
+            "University: ", this.university,
+            "GPA: ", this.gpa);
+        console.log("*****");
+    }
 }
 
+var student_1 = new Student("Nora", "Pinnacle University");
 
-console.log("another_student object with properties: ", another_student);
+console.log("student_1: ", student_1);
 
-another_student.printDetails();
+student_1.printDetails();
 
-var yet_another_student = new Object();
+// TODO recording: Show on console, expand object, and show the new printDetails output
 
-yet_another_student.name = "Nancy";
-yet_another_student.university = "Pinnacle University";
-yet_another_student.gpa = 3.3;
+student_1.gpa = 3.7;
 
-yet_another_student.printDetails = function() {
-    console.log("***** printDetails")
+console.log("student_1 with gpa: ", student_1);
+
+student_1.printDetails();
+
+
+Student.prototype.showDetails = function() {
+    console.log("***** showDetails");
     console.log("Name: ", this.name,
         "University: ", this.university,
         "GPA: ", this.gpa);
-    console.log("*****")
-}
+    console.log("*****");
+};
 
-console.log("yet_another_student object with properties: ", yet_another_student);
 
-yet_another_student.printDetails();
+student_1.showDetails();
+
+
+var student_2 = new Student("Damien", "Science University");
+student_2.gpa = 3.2;
+
+console.log("student_2 with gpa: ", student_2);
+
+student_2.printDetails();
+
+student_2.showDetails();
