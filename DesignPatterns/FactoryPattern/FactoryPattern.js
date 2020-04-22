@@ -51,3 +51,55 @@ class Truck extends Vehicle {
         console.log("*****")
     }
 };
+
+
+
+class VehicleFactory {
+
+    createVehicle(vehicleType, details) {
+
+        var vehicleCtor = Car;
+        if (vehicleType == "car") {
+            vehicleCtor = Car;
+        } else if (vehicleType == "truck") {
+            vehicleCtor = Truck;
+        }
+
+        return new vehicleCtor(details);
+
+    }
+}
+
+
+var vehicleFactory = new VehicleFactory();
+
+console.log("Vehicle factory: ", vehicleFactory);
+
+
+var carDetails = {
+    "make": "Honda",
+    "model": "Civic",
+    "carType": "sedan"
+}
+
+var car = vehicleFactory.createVehicle("car", carDetails);
+
+console.log("Created car: ", car);
+console.log("Is instanceof Car?: ", (car instanceof Car));
+
+
+car.printDetails();
+
+
+var truckDetails = {
+    "make": "Ashok Leyland",
+    "model": "D20B",
+    "truckType": "flatbed"
+}
+
+var truck = vehicleFactory.createVehicle("truck", truckDetails);
+
+console.log("Created truck: ", truck);
+console.log("Is instanceof Truck?: ", (truck instanceof Truck));
+
+truck.printDetails();
