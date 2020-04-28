@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Proxy Pattern</title>
+
+    <script src="../../../third-party/jquery-3.4.1.js"></script>
+
+    <style>
+        .box {
+            display: block;
+            width: 500px;
+            border: solid 1px black;
+            color: black;
+            margin: 4px;
+            font-size: 22px;
+            padding: 12px;
+            background-color: #7ec5df;
+        }
+
+        .button {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+            border: solid 1px black;
+            color: white;
+            cursor: pointer;
+            margin: 4px;
+            font-size: 24px;
+            padding: 2px;
+            background-color: #380138;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Proxy Pattern</h2>
+
+    <div class="button" post-id="1">
+        Post 1
+    </div>
+    <div class="button" post-id="2">
+        Post 2
+    </div>
+    <div class="button" post-id="3">
+        Post 3
+    </div>
+    <div class="button" post-id="4">
+        Post 4
+    </div>
+
+    <div id=root>
+    </div>
+
+    <script src = "ProxyPattern.js"></script>
+
+</body>
+</html>
