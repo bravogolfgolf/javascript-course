@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Composite Pattern</title>
+
+    <script src="../../../third-party/jquery-3.4.1.js"></script>
+
+    <style>
+        .box {
+            display: inline-block;
+            width: 200px;
+            height: 120px;
+            text-align: center;
+            color: black;
+            margin: 4px;
+            line-height: 34px;
+            font-size: 24px;
+            padding-right: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+            border: solid 1px black;
+            color: white;
+            cursor: pointer;
+            margin: 4px;
+            font-size: 20px;
+            padding: 2px;
+            font-family: 'Arial';
+            background-color: #380138;
+        }
+
+        .button:hover {
+            background-color: #ff01ff;
+        }
+
+        .inline {
+            float: left;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Composite Pattern</h2>
+
+    <div>
+    <div class="button" id="all">
+        Toggle all
+    </div>
+    <div class="button" id="bird">
+        Toggle bird
+    </div>
+    <div class="button" id="dogs">
+        Toggle dogs
+    </div>
+    <div class="button" id="nature">
+        Toggle nature
+    </div>
+    </div>
+    <div class="box">
+        <div id="bird-img" class="inline"><img src="images/bird.jpg"/></div>
+    </div>
+    <div class="box" id="dogs-box">
+        <div class="inline dog"><img src="images/dog1.jpg"/></div>
+        <div class="inline dog"><img src="images/dog2.jpg"/></div>
+        <div class="inline dog"><img src="images/dog3.jpg"/></div>
+    </div>
+    <div class="box" id="nature-box">
+        <div class="inline nature"><img src="images/nature1.jpg"/></div>
+        <div class="inline nature"><img src="images/nature2.jpg"/></div>
+        <div class="inline nature"><img src="images/nature3.jpg"/></div>
+        <div class="inline nature"><img src="images/nature4.jpg"/></div>
+    </div>
+
+    <script src = "CompositePattern.js"></script>
+
+</body>
+</html>
