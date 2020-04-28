@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery No Flyweight Pattern</title>
+
+    <script src="jquery-3.4.1.js"></script>
+    <style>
+        .button {
+            display: block;
+            width: 150px;
+            text-align: center;
+            border: solid 1px black;
+            color: black;
+            cursor: pointer;
+            margin: 4px;
+            line-height: 34px;
+            font-size: 24px;
+            background-color: #00b33c;
+        }
+        .button:hover {
+            color: black;
+            cursor: pointer;
+            background-color: #ffb33c;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>jQuery No Flyweight Pattern</h2>
+
+    <div id="button-container">
+        <div class="button" id="button1" message="Hello!">
+            Button 1
+        </div>
+        <div class="button" id="button2" message="Good morning.">
+            Button 2
+        </div>
+        <div class="button" id="button3" message="How are you?">
+            Button 3
+        </div>
+        <div class="button" id="button4" message="Hi!">
+            Button 4
+        </div>
+        <div class="button" id="button5" message="Howdy!">
+            Button 5
+        </div>
+    </div>
+
+    <script src = "jQueryNoFlyweightPattern.js"></script>
+
+</body>
+</html>
