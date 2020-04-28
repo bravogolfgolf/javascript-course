@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Adapter Pattern</title>
+
+    <script src="jquery-3.4.1.js"></script>
+
+    <style>
+        .box {
+            display: inline-block;
+            width: 300px;
+            text-align: center;
+            border: solid 1px black;
+            color: black;
+            margin: 4px;
+            line-height: 34px;
+            font-size: 24px;
+            padding: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+            border: solid 1px black;
+            color: white;
+            cursor: pointer;
+            margin: 4px;
+            font-size: 24px;
+            padding: 2px;
+            background-color: #380138;
+        }
+
+        .box-legacy {
+            background-color: #f5f5f5;
+        }
+
+        .box-orange {
+            background-color: #ffb00c;
+        }
+
+        .box-yellow {
+            background-color: #fff2bd;
+        }
+
+        .box-blue {
+            background-color: #7ec5df;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Adapter Pattern</h2>
+
+    <div id="button-container">
+        <div class="button" box-type="legacy">
+            Draw Legacy Box
+        </div>
+        <div class="button" box-type="orange">
+            Draw Orange Box
+        </div>
+        <div class="button" box-type="yellow">
+            Draw Yellow Box
+        </div>
+        <div class="button" box-type="blue">
+            Draw Blue Box
+        </div>
+    </div>
+
+    <div id=root>
+    </div>
+
+    <script src = "AdapterPattern.js"></script>
+
+</body>
+</html>
