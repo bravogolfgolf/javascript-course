@@ -1,42 +1,42 @@
-var Iterator = {
+class Iterator {
+    index = 0;
+    items = [];
 
-    reset: function () {
+    reset() {
         this.index = 0;
-    },
+    }
 
-    hasNext: function () {
+    hasNext() {
         return this.index < this.items.length;
-    },
+    }
 
-    next: function () {
+    next() {
         if (!this.hasNext()) {
             throw Error("No more items");
         }
-
-        var currentItem = this.items[this.index];
+        let currentItem = this.items[this.index];
         this.index++;
-
         return currentItem;
-    },
+    }
 
-    first: function () {
+    first() {
         this.reset();
-
         return this.next();
-    },
+    }
 
-    each: function (callbackFn) {
-        for (var item = this.first(); this.hasNext(); item = this.next()) {
+    each(callbackFn) {
+        let item;
+        for (item = this.first(); this.hasNext(); item = this.next()) {
             callbackFn(item);
         }
-
         callbackFn(item);
     }
-};
+}
 
-class Students {
+class Students extends Iterator {
 
     constructor() {
+        super();
         this.index = 0;
         this.items = [];
     }
@@ -46,9 +46,7 @@ class Students {
     }
 }
 
-_.extend(Students.prototype, Iterator);
-
-var students = new Students();
+const students = new Students();
 
 console.log(students);
 
@@ -72,9 +70,6 @@ console.log(students.next());
 console.log("Has next?", students.hasNext());
 console.log(students.next());
 
-//console.log("Has next?", students.hasNext());
-//console.log(students.next());
-
 console.log("Reset", students.reset());
 
 console.log(students.next());
@@ -87,19 +82,17 @@ students.each(function (name) {
     console.log("***in each", name);
 });
 
-class Cities {
+class Cities extends Iterator {
 
     constructor() {
+        super();
         this.index = 0;
         this.items = ["New York", "Boston", "San Diego", "San Francisco",
             "Austin"];
     }
-
 }
 
-_.extend(Cities.prototype, Iterator);
-
-var cities = new Cities();
+const cities = new Cities();
 
 console.log(cities.next());
 console.log(cities.next());
