@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <script src="../../../third-party/jquery-3.4.1.js"></script>
+
+    <title>Mediator Pattern</title>
+
+    <style>
+        .button {
+            display: block;
+            width: 250px;
+            text-align: center;
+            border: solid 1px black;
+            color: black;
+            cursor: pointer;
+            margin: 4px;
+            line-height: 34px;
+            font-size: 24px;
+            background-color: #09DCCF;
+            font-family: 'Arial';
+        }
+        .button:hover {
+            color: white;
+            background-color: #022A28;
+        }
+        .box {
+            display: block;
+            width: 226px;
+            height: 100px;
+            border: solid 1px black;
+            color: black;
+            margin: 4px;
+            font-size: 18px;
+            font-family: 'Arial';
+            padding: 12px;
+            background-color: #F5F51C;
+        }
+
+        input {
+            margin: 16px 4px 4px 4px;
+            width: 246px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Mediator Pattern</h2>
+
+    <div id="#bug-framework">
+        <div class="button" id="create-bug">
+            Create bug
+        </div>
+        <input type="text" id="bug-id-input">
+        </input>
+        <div class="button" id="status-debugging">
+            Debugging
+        </div>
+        <div class="button" id="status-fixed">
+            Fixed
+        </div>
+        <div class="button" id="status-tested">
+            Tested
+        </div>
+        <div class="button" id="status-closed">
+            Closed
+        </div>
+        <div class="box" id="bug-details">
+            
+        </div>
+    </div>
+
+    <script src = "MediatorPattern.js"></script>
+
+</body>
+</html>
